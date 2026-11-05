@@ -1,0 +1,35 @@
+name: Leaderboard Removal Request
+description: Request to remove an In-Game Name (IGN) from the DawnSounds global leaderboards.
+title: "[Removal]: "
+labels: ["removal-request"]
+body:
+  - type: input
+  id: nickname
+  attributes:
+    label: In-Game Name (IGN)
+    description: The exact nickname shown on the leaderboard.
+    placeholder: e.g. "Player123"
+  validations:
+    required: true
+  - type: dropdown
+  id: mode
+  attributes:
+    label: Game Mode / Length
+    description: Which leaderboard category contains your score?
+    options:
+      - Classic
+      - Survival
+      - Trivia (10Q)
+      - Trivia (25Q)
+      - Trivia (50Q)
+      - Trivia (75Q)
+      - Trivia (100Q)
+  validations:
+    required: true
+  - type: textarea
+  id: reason
+  attributes:
+    label: Additional Details (Optional)
+    description: Any other context for your request.
+  validations:
+    required: false

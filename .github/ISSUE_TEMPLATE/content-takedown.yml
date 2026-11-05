@@ -1,0 +1,28 @@
+name: Rights-Holder Content Takedown
+description: Request modification or removal of copyrighted assets, audio, or game content.
+title: "[Takedown]: "
+labels: ["copyright", "takedown"]
+body:
+  - type: input
+    id: requester_name
+    attributes:
+      label: Name / Representative
+      description: Your name or organization name.
+      placeholder: e.g. Moonton Games Legal / Independent Creator
+    validations:
+      required: true
+  - type: textarea
+    id: content_details
+    attributes:
+      label: Content Description & Location
+      description: Describe what content is shown and where it appears on DawnSounds (e.g. specific hero audio voice lines or artwork).
+      placeholder: Specify the hero name, page URL, or asset description.
+    validations:
+      required: true
+  - type: textarea
+    id: proof
+    attributes:
+      label: Statement of Ownership / Details
+      description: Provide details confirming your authorization or rights regarding the content.
+    validations:
+      required: true
