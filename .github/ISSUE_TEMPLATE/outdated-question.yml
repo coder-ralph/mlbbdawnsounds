@@ -1,0 +1,56 @@
+name: Outdated Question or No Answer in Choices
+description: Report an outdated, incorrect trivia question or a question where the correct answer is missing from the choices.
+title: "[Outdated Question]: "
+labels: ["outdated-question", "trivia"]
+body:
+  - type: dropdown
+    id: category
+    attributes:
+      label: Trivia Category
+      description: Which category does this question fall under?
+      options:
+        - Counters
+        - Items & Spells
+        - Hero Titles
+        - Skills & Lore
+    validations:
+      required: true
+
+  - type: textarea
+    id: question_text
+    attributes:
+      label: Question Text
+      description: Paste the exact question shown on the screen.
+      placeholder: e.g. Which defense item reduces enemy healing and shield effectiveness?
+    validations:
+      required: true
+
+  - type: textarea
+    id: choices
+    attributes:
+      label: Options / Choices (A, B, C, D)
+      description: List the choices as shown in the quiz.
+      placeholder: |
+        A: Brute Force Breastplate
+        B: Guardian Helmet
+        C: Dominance Ice
+        D: Antique Cuirass
+    validations:
+      required: true
+
+  - type: input
+    id: correct_answer
+    attributes:
+      label: Correct Answer / Proposed Correction
+      description: What should the correct answer be? (If the correct answer is missing from A-D choices above, specify the correct answer clearly here).
+      placeholder: e.g. The correct answer should be Dominance Ice / Sea Halberd
+    validations:
+      required: true
+
+  - type: textarea
+    id: additional_notes
+    attributes:
+      label: Additional Notes / Patch Context (Optional)
+      description: Mention any patch changes or context if applicable.
+    validations:
+      required: false
