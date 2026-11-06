@@ -1,28 +1,59 @@
 name: Rights-Holder Content Takedown
-description: Request modification or removal of copyrighted assets, audio, or game content.
+description: Ask for audio, artwork or other game content shown on DawnSounds to be changed or removed.
 title: "[Takedown]: "
 labels: ["copyright", "takedown"]
 body:
+  - type: markdown
+    attributes:
+      value: |
+        Use this form if you own content shown on DawnSounds, or act for someone who does. Issues in this repository are **public**: please don't post private contact details. The maintainer will reply in this issue. This form is a quick way to reach the maintainer and does not replace any formal notice you may wish to send to the site's hosting provider.
   - type: input
     id: requester_name
     attributes:
-      label: Name / Representative
-      description: Your name or organization name.
-      placeholder: e.g. Moonton Games Legal / Independent Creator
+      label: Name or organization
+      placeholder: e.g. Studio or company name
+    validations:
+      required: true
+  - type: dropdown
+    id: relationship
+    attributes:
+      label: Your relationship to the content
+      options:
+        - I am the rights holder
+        - I am authorized to act for the rights holder
+        - Other
     validations:
       required: true
   - type: textarea
     id: content_details
     attributes:
-      label: Content Description & Location
-      description: Describe what content is shown and where it appears on DawnSounds (e.g. specific hero audio voice lines or artwork).
-      placeholder: Specify the hero name, page URL, or asset description.
+      label: What is shown, and where
+      description: Describe the content and give the page URL or the hero name, voice line or image concerned.
+      placeholder: e.g. https://www.dawnsounds.tech/ - voice lines of a specific hero
+    validations:
+      required: true
+  - type: dropdown
+    id: action
+    attributes:
+      label: Requested action
+      options:
+        - Remove the content
+        - Replace or change the content
+        - Add credit or attribution
+        - Other
     validations:
       required: true
   - type: textarea
     id: proof
     attributes:
-      label: Statement of Ownership / Details
-      description: Provide details confirming your authorization or rights regarding the content.
+      label: Ownership or authorization details
+      description: Explain how you own the content or why you may act for the owner. A link to an official page is enough.
     validations:
       required: true
+  - type: checkboxes
+    id: confirm
+    attributes:
+      label: Confirmation
+      options:
+        - label: The information in this request is accurate, and I am the rights holder or authorized to act for them.
+          required: true
