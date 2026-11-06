@@ -1,22 +1,27 @@
 name: Leaderboard Removal Request
-description: Request to remove an In-Game Name (IGN) from the DawnSounds global leaderboards.
+description: Ask for a nickname (IGN) to be removed from the DawnSounds global leaderboards.
 title: "[Removal]: "
 labels: ["removal-request"]
 body:
+  - type: markdown
+    attributes:
+      value: |
+        Issues in this repository are **public**. The nickname you want removed is already visible on the leaderboard, so only enter what this form asks for. Please don't post your real name, email address or other personal details.
   - type: input
     id: nickname
     attributes:
       label: In-Game Name (IGN)
-      description: The exact nickname shown on the leaderboard.
-      placeholder: e.g. "Player123"
+      description: The exact nickname as shown on the leaderboard.
+      placeholder: e.g. Player123
     validations:
       required: true
   - type: dropdown
     id: mode
     attributes:
-      label: Game Mode / Length
-      description: Which leaderboard category contains your score?
+      label: Game mode / length
+      description: Which leaderboard(s) should the nickname be removed from?
       options:
+        - All modes
         - Classic
         - Survival
         - Trivia (10Q)
@@ -27,9 +32,17 @@ body:
     validations:
       required: true
   - type: textarea
-    id: reason
+    id: details
     attributes:
-      label: Additional Details (Optional)
-      description: Any other context for your request.
+      label: Entry details (optional)
+      description: The score and date you see next to the nickname. This helps find the right entry, because nicknames are not tied to accounts.
+      placeholder: e.g. 1,850 pts, 3 Nov 2026
     validations:
       required: false
+  - type: checkboxes
+    id: confirm
+    attributes:
+      label: Confirmation
+      options:
+        - label: This nickname is mine, and I understand its entries will be deleted from the public leaderboard.
+          required: true

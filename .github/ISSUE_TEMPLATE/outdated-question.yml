@@ -1,56 +1,75 @@
-name: Outdated Question or No Answer in Choices
-description: Report an outdated, incorrect trivia question or a question where the correct answer is missing from the choices.
-title: "[Outdated Question]: "
+name: Outdated or Wrong Trivia Question
+description: Report a trivia question that is outdated, incorrect, unclear, or missing the correct answer in its choices.
+title: "[Question]: "
 labels: ["outdated-question", "trivia"]
 body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for helping keep Trivia Arena accurate. Issues in this repository are **public**, so please don't include personal details.
   - type: dropdown
     id: category
     attributes:
-      label: Trivia Category
-      description: Which category does this question fall under?
+      label: Trivia category
       options:
         - Counters
         - Items & Spells
         - Hero Titles
         - Skills & Lore
+        - Not sure
     validations:
       required: true
-
+  - type: dropdown
+    id: problem
+    attributes:
+      label: What is wrong?
+      options:
+        - Outdated after a game patch
+        - The marked answer is incorrect
+        - The correct answer is missing from the choices
+        - Typo or unclear wording
+        - Other
+    validations:
+      required: true
   - type: textarea
     id: question_text
     attributes:
-      label: Question Text
-      description: Paste the exact question shown on the screen.
-      placeholder: e.g. Which defense item reduces enemy healing and shield effectiveness?
+      label: Question text
+      description: Paste the question exactly as it appears in the quiz.
     validations:
       required: true
-
   - type: textarea
     id: choices
     attributes:
-      label: Options / Choices (A, B, C, D)
+      label: Answer choices
       description: List the choices as shown in the quiz.
       placeholder: |
-        A: Brute Force Breastplate
-        B: Guardian Helmet
-        C: Dominance Ice
-        D: Antique Cuirass
+        A: ...
+        B: ...
+        C: ...
+        D: ...
     validations:
       required: true
-
   - type: input
     id: correct_answer
     attributes:
-      label: Correct Answer / Proposed Correction
-      description: What should the correct answer be? (If the correct answer is missing from A-D choices above, specify the correct answer clearly here).
-      placeholder: e.g. The correct answer should be Dominance Ice / Sea Halberd
+      label: Correct answer or proposed fix
+      description: What should the answer be? If the right answer is not among the choices, write it here.
+      placeholder: e.g. The answer should be C, not B
     validations:
       required: true
-
-  - type: textarea
-    id: additional_notes
+  - type: input
+    id: patch
     attributes:
-      label: Additional Notes / Patch Context (Optional)
-      description: Mention any patch changes or context if applicable.
+      label: Game patch (optional)
+      description: The patch you checked against, if you know it.
+      placeholder: e.g. 2.2.16a
+    validations:
+      required: false
+  - type: textarea
+    id: source
+    attributes:
+      label: How can this be checked? (optional)
+      description: A link to patch notes, or what you see in the game. Screenshots can be dragged into this box.
     validations:
       required: false
